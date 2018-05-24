@@ -1,0 +1,24 @@
+package com.example.demo;
+
+import com.example.demo.dao.UserMapper;
+import com.example.demo.entity.User;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class DemoApplicationTests {
+	@Autowired
+	UserMapper userMapper;
+	@Test
+	public void contextLoads() {
+		String sql = "where username='lxy' and password='123456'";
+		User user = userMapper.userLogin(sql);
+	    System.out.println(user.getUsername());
+
+	}
+
+}
